@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: ${APPLICATION_NAME:mzhn/auth}
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/auth-service
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  jwt:
+    accessToken: ${JWT_ACCESS_TOKEN:ZXhhbXBsZV9zZWNyZXRfa2V5X2Zvcl9qd3RfYXV0aGVudGljYXRpb25faXNfc2VjdXJl}
+    accessTokenTTL: ${JWT_ACCESS_TOKEN_TTL:30}
+    refreshToken: ${JWT_REFRESH_TOKEN:ZXhhbXBsZV9zZWNyZXRfa2V5X2Zvcl9qd3RfYXV0aGVudGljYXRpb25faXNfc2VjdXJl}
+    refreshTokenTTL: ${JWT_REFRESH_TOKEN_TTL:360}

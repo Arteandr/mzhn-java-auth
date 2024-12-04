@@ -1,0 +1,24 @@
+services:
+  postgres:
+    image: postgres:14.13-alpine3.20
+    container_name: mzhn-java-auth-pg
+    environment:
+      POSTGRES_DB: auth-service
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - mzhn-java-auth-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: mzhn-java-auth-cache
+    ports:
+      - "6379:6379"
+    volumes:
+      - mzhn-java-auth-cache-data:/data
+volumes:
+  mzhn-java-auth-data:
+  mzhn-java-auth-cache-data:
